@@ -4,6 +4,7 @@ export class Filter extends Component {
   render() {
     return (
       <tr>
+        <td></td>
         <td>
           <input type="text" name="" className="form-control" />
         </td>
