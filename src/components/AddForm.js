@@ -4,9 +4,30 @@ export class AddForm extends Component {
   constructor(props){
     super(props);
     this.state = {
+      id: '',
       name: '',
       status: '1'
     };
+  }
+
+  componentWillMount() {
+    if(this.props.task){
+      this.setState({
+        id: this.props.task.id,
+        name: this.props.task.name,
+        status: this.props.task.status
+      });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps && nextProps.task){
+      this.setState({
+        id: nextProps.task.id,
+        name: nextProps.task.name,
+        status: nextProps.task.status
+      });
+    }
   }
 
   onCloseForm = () => {
@@ -30,16 +51,18 @@ export class AddForm extends Component {
 
   onClear = () => {
     this.setState({
+      id: '',
       name: '',
       status: '1'
     });
   }
 
   render() {
+    var { id } = this.state;
     return (
       <div className="panel panel-primary">
         <div className="panel-heading">
-          <span>Add task</span>
+          <span>{ id !== ''  ? 'Edit task' : 'Add task' }</span>
           <span
             className="pull-right close-form"
             onClick={ this.onCloseForm }
@@ -67,7 +90,7 @@ export class AddForm extends Component {
               <option value="0">Hidden</option>
             </select>
             <br />
-            <button type="submit" className="btn btn-primary">Add</button>
+            <button type="submit" className="btn btn-primary">{ id !== '' ? 'Save' : 'Add' }</button>
           </form>
         </div>
       </div>

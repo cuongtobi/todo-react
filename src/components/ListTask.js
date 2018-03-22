@@ -20,7 +20,7 @@ export class ListTask extends Component {
 
     return (
       <tbody>
-        <Filter />
+        <Filter onFilter={ this.props.onFilter } />
         {elmListTask}
       </tbody>
     );

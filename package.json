@@ -2,7 +2,7 @@
   "name": "super-todo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cuongtobi.github.io/super-todo",
+  "homepage": "https://cuongtobi.github.io/todo",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "react": "^16.2.0",
